@@ -299,7 +299,8 @@
     });
 
     var ComparerView = Backbone.View.extend({
-        initialize: function() {
+        initialize: function(options) {
+	    this.options = options;
             this.render();
             this.model.selectedFeatures.on('add remove reset',
                 _.bind(this.renderComparisons, this));
