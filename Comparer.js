@@ -48,10 +48,6 @@
             // Event handlers need to be disconnected when a layer changes,
             // so they are tracked
             var load, mouseOver, mouseOut, click;
-            if (model.layerEventHandlers.length) {
-                _.invoke(model.layerEventHandlers, 'remove');
-                model.layerEventHandlers = [];
-            }
 
             model.clear();
             var layerInfo = model.get('layers')[layerIdx];
@@ -113,6 +109,12 @@
                 this.currentLayer = null;
                 this.selectedFeatures.reset();
             }
+
+            if (this.layerEventHandlers.length) {
+                _.invoke(this.layerEventHandlers, 'remove');
+                this.layerEventHandlers = [];
+            }
+
             this._clearHighlight();
             this.selectionLayer.clear();
         },
