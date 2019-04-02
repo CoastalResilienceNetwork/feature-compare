@@ -36,3 +36,10 @@
     background-color: rgba(192,192,192, 0.85);
     border-radius: 2px;
 }
+.comparer-feature-col li{
+    list-style-type: none;
+    
+}
+.comparer-feature-col ul{
+    padding-inline-start: 0;
+}
