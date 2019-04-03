@@ -5,7 +5,7 @@
     "layers": [
         {
             "name": "HUC 8",
-            "url": "http://50.18.215.52/arcgis/rest/services/Louisiana_Freshwater/Watershed_and_Political_Boundaries/MapServer/0",
+            "url": "https://50.18.215.52/arcgis/rest/services/Louisiana_Freshwater/Watershed_and_Political_Boundaries/MapServer/0",
             "mapDisplayAttribute": "SUBREGION",
             "objectIdField": "OBJECTID",
             "attrs": [
@@ -21,7 +21,7 @@
         },
         {
             "name": "HUC 12",
-            "url": "http://50.18.215.52/arcgis/rest/services/Louisiana_Freshwater/Watershed_and_Political_Boundaries/MapServer/1",
+            "url": "https://50.18.215.52/arcgis/rest/services/Louisiana_Freshwater/Watershed_and_Political_Boundaries/MapServer/1",
             "mapDisplayAttribute": "STATES",
             "attrs": [
                 {"name": "STATES", "format": "text", "maxLength": 25},

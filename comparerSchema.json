@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-03/schema#",
+    "$schema": "https://json-schema.org/draft-03/schema#",
     "title": "Feature Comparer Plugin Schema",
     "type": "object",
     "additionalProperties": false,
