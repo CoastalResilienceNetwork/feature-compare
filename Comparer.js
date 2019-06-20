@@ -211,6 +211,24 @@
             } else if (this._selectionSlotsAvailable()) {
                 this._selectFeature(e.graphic);
             }
+            var numCols = $(".comparer-feature-col").length;
+            if (numCols == 1){
+                $('.comparer-feature-list').find('.comparer-feature-col').first().prepend($(".comparer-feature-col-fields"));
+            }
+            if (numCols == 2){
+                $('.comparer-feature-list').find('.comparer-feature-col').first().prepend($(".comparer-feature-col-fields"));
+                $('.comparer-feature-list').find('.comparer-feature-col').last().prepend($(".comparer-feature-col-fields").clone());
+            }
+            if (numCols == 3){
+                $('.comparer-feature-list').find('.comparer-feature-col').first().prepend($(".comparer-feature-col-fields"));
+                $('.comparer-feature-list').find('.comparer-feature-col').first().next().prepend($(".comparer-feature-col-fields").clone());
+                $('.comparer-feature-list').find('.comparer-feature-col').last().prepend($(".comparer-feature-col-fields").clone());
+            }
+            $(".comparer-feature-col").each(function(i,v){
+                if ( $(v).find(".comparer-feature-col-fields").length > 1 ){
+                    $(v).find(".comparer-feature-col-fields").first().remove();
+                }
+            })
         },
 
         _unselectFeature: function(graphic) {
@@ -302,7 +320,7 @@
 
     var ComparerView = Backbone.View.extend({
         initialize: function(options) {
-	    this.options = options;
+        this.options = options;
             this.render();
             this.model.selectedFeatures.on('add remove reset',
                 _.bind(this.renderComparisons, this));
@@ -355,19 +373,36 @@
                 $comps.empty();
                 return;
             }
-
             featureEls.unshift(
                 view.options.templates.featureFields({
                     fieldInfos: view.model.currentFieldInfos
                 })
             );
-            
             $comps.empty().append.apply($comps, featureEls);
         },
         
         removeSelection: function(evt) {
             var id = $(evt.target).data('id');
             this.model._removeSelectedFeature(id);
+
+            var numCols = $(".comparer-feature-col").length;
+            if (numCols == 1){
+                $('.comparer-feature-list').find('.comparer-feature-col').first().prepend($(".comparer-feature-col-fields"));
+            }
+            if (numCols == 2){
+                $('.comparer-feature-list').find('.comparer-feature-col').first().prepend($(".comparer-feature-col-fields"));
+                $('.comparer-feature-list').find('.comparer-feature-col').last().prepend($(".comparer-feature-col-fields").clone());
+            }
+            if (numCols == 3){
+                $('.comparer-feature-list').find('.comparer-feature-col').first().prepend($(".comparer-feature-col-fields"));
+                $('.comparer-feature-list').find('.comparer-feature-col').first().next().prepend($(".comparer-feature-col-fields").clone());
+                $('.comparer-feature-list').find('.comparer-feature-col').last().prepend($(".comparer-feature-col-fields").clone());
+            }
+            $(".comparer-feature-col").each(function(i,v){
+                if ( $(v).find(".comparer-feature-col-fields").length > 1 ){
+                    $(v).find(".comparer-feature-col-fields").first().remove();
+                }
+            })
         }
     });
 

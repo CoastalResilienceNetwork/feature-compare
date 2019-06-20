@@ -6,10 +6,14 @@
     margin: 5px;
 }
 
-.comparer-feature-list .comparer-feature-col {
+.comparer-feature-list .comparer-feature-col, .comparer-feature-col-fields {
     float: left;
     margin: 1px;
     min-width: 100px;
+}
+
+.comparer-feature-list .comparer-feature-col{
+    width:450px;
 }
 
 .comparer-selection-badge {
@@ -38,10 +42,10 @@
     background-color: rgba(192,192,192, 0.85);
     border-radius: 2px;
 }
-.comparer-feature-col li{
+.comparer-feature-col li, .comparer-feature-col-fields li{
     list-style-type: none;
     
 }
-.comparer-feature-col ul{
+.comparer-feature-col ul, .comparer-feature-col-fields ul{
     padding-inline-start: 0;
 }
